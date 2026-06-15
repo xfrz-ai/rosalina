@@ -9,6 +9,57 @@ const radarData = [
   { subject: 'Reading', A: 91, fullMark: 100 },
 ];
 
+const funFactsData = [
+  {
+    image: '/ramen.png',
+    title: 'Ramen Lover',
+    description: 'Semangkuk ramen hangat selalu berhasil membuat hariku lebih baik.'
+  },
+  {
+    image: '/kyoto.png',
+    title: 'Kyoto Explorer',
+    description: 'Kuil-kuil tua dan jalanan tradisional Kyoto selalu memberikan ketenangan.'
+  },
+  {
+    image: '/budaya-jepang.png',
+    title: 'Pecinta Budaya',
+    description: 'Mempelajari budaya Jepang membuat saya lebih menghargai tradisi.'
+  }
+];
+
+function FlipCard({ image, title, description }: { image: string, title: string, description: string }) {
+  const [isFlipped, setIsFlipped] = useState(false);
+
+  return (
+    <div 
+      className="relative w-full aspect-[4/5] cursor-pointer group"
+      style={{ perspective: '1000px' }}
+      onClick={() => setIsFlipped(!isFlipped)}
+    >
+      <div 
+        className="w-full h-full transition-transform duration-500 relative"
+        style={{ transformStyle: 'preserve-3d', transform: isFlipped ? 'rotateY(180deg)' : 'rotateY(0deg)' }}
+      >
+        {/* Front */}
+        <div 
+          className="absolute inset-0 bg-white rounded-2xl shadow-sm border border-gray-100 flex items-center justify-center p-2"
+          style={{ backfaceVisibility: 'hidden' }}
+        >
+          <img src={image} alt={title} className="w-full h-full object-contain" />
+        </div>
+        
+        {/* Back */}
+        <div 
+          className="absolute inset-0 bg-[#FF5757] rounded-2xl shadow-sm p-5 flex flex-col justify-center"
+          style={{ backfaceVisibility: 'hidden', transform: 'rotateY(180deg)' }}
+        >
+          <h4 className="text-white font-medium text-sm mb-3">{title}</h4>
+          <p className="text-white/90 text-[13px] leading-relaxed">{description}</p>
+        </div>
+      </div>
+    </div>
+  );
+}
 function App() {
   const [activeMenu, setActiveMenu] = useState('Tentangku');
 
@@ -90,34 +141,21 @@ function App() {
                     </div>
                   </div>
 
-                  {/* Card 2: Details */}
-                  <div className="bg-[#f8f8f8] rounded-2xl p-6 shadow-sm border border-gray-50 flex flex-col gap-4">
-                    {/* Profil Section */}
-                    <div>
-                      <h3 className="text-[#FF5757] text-[16px] font-bold mb-3">Profil</h3>
-                      <p className="text-gray-600 text-[15px] leading-[1.8]">
-                        Berawal dari kecintaan terhadap budaya Jepang, kini saya membantu siswa mencapai tujuan mereka dalam bahasa Jepang—mulai dari JLPT, Kaiwa, hingga persiapan studi dan kerja di Jepang.
-                      </p>
-                    </div>
+                  {/* Card 2: Profil */}
+                  <div className="bg-[#f8f8f8] rounded-2xl p-6 mb-4 shadow-sm border border-gray-50">
+                    <h3 className="text-[#FF5757] text-[16px] font-bold mb-3">Profil</h3>
+                    <p className="text-gray-600 text-[15px] leading-[1.8]">
+                      Berawal dari kecintaan terhadap budaya Jepang, kini saya membantu siswa mencapai tujuan mereka dalam bahasa Jepang—mulai dari JLPT, Kaiwa, hingga persiapan studi dan kerja di Jepang.
+                    </p>
+                  </div>
 
-                    {/* Kemampuan Section */}
-                    <div>
-                      <h3 className="text-[#FF5757] text-[16px] font-bold mb-3">Kemampuan</h3>
-                      <ul className="flex flex-col gap-2 text-gray-600 text-[15px]">
-                        <li className="flex items-center gap-2">🇯🇵 Bahasa Jepang</li>
-                        <li className="flex items-center gap-2">💬 Kaiwa (Conversation)</li>
-                        <li className="flex items-center gap-2">📝 JLPT Preparation</li>
-                        <li className="flex items-center gap-2">🎓 Study Abroad Support</li>
-                        <li className="flex items-center gap-2">🇬🇧 English</li>
-                      </ul>
-                    </div>
-
-                    {/* Fun Facts Section */}
-                    <div>
-                      <h3 className="text-[#FF5757] text-[16px] font-bold mb-3">Fun Facts</h3>
-                      <p className="text-gray-600 text-[15px] leading-[1.8]">
-                        Saya sangat suka menonton anime, membaca manga, dan mendengarkan J-Pop.
-                      </p>
+                  {/* Card 3: Fun Fact */}
+                  <div className="bg-[#f8f8f8] rounded-2xl p-6 shadow-sm border border-gray-50">
+                    <h3 className="text-[#FF5757] text-[16px] font-bold mb-3">Fun Fact</h3>
+                    <div className="grid grid-cols-3 gap-4">
+                      {funFactsData.map((fact, index) => (
+                        <FlipCard key={index} {...fact} />
+                      ))}
                     </div>
                   </div>
                 </div>
