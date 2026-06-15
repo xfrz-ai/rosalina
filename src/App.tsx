@@ -1,5 +1,13 @@
 import { useState } from 'react';
 import { CursorTrail } from './CursorTrail';
+import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer } from 'recharts';
+
+const radarData = [
+  { subject: 'Script & Vocabulary', A: 91, fullMark: 100 },
+  { subject: 'Conversation', A: 100, fullMark: 100 },
+  { subject: 'Listening', A: 91, fullMark: 100 },
+  { subject: 'Reading', A: 91, fullMark: 100 },
+];
 
 function App() {
   const [activeMenu, setActiveMenu] = useState('Tentangku');
@@ -41,14 +49,10 @@ function App() {
               <button
                 key={item.name}
                 onClick={() => setActiveMenu(item.name)}
-                className={`flex items-center gap-4 px-4 py-3 rounded-xl transition-all duration-200 ${
-                  activeMenu === item.name 
-                    ? 'bg-white shadow-sm' 
-                    : 'hover:bg-gray-200/50'
-                }`}
+                className="flex items-center gap-4 px-4 py-3 rounded-xl transition-all duration-200 hover:bg-gray-200/50"
               >
                 <i className={`ph-duotone ${item.icon} text-xl ${activeMenu === item.name ? 'text-[#FF5757]' : 'text-[#FF5757]'}`}></i>
-                <span className={`text-[15px] font-semibold ${activeMenu === item.name ? 'text-black' : 'text-gray-700'}`}>{item.name}</span>
+                <span className={`text-[15px] ${activeMenu === item.name ? 'font-bold text-black' : 'font-medium text-gray-600'}`}>{item.name}</span>
               </button>
             ))}
           </nav>
@@ -71,7 +75,7 @@ function App() {
                   <h1 className="text-[32px] font-bold text-black mb-8">Tentangku</h1>
                   
                   {/* Card 1: Greeting */}
-                  <div className="bg-[#f8f8f8] rounded-2xl p-8 mb-6 flex justify-between items-start shadow-sm border border-gray-50">
+                  <div className="bg-[#f8f8f8] rounded-2xl p-6 mb-4 flex justify-between items-start shadow-sm border border-gray-50">
                     <div className="flex gap-6 items-center">
                       <img src="/avatar-rosalina.png" alt="Profile Large" className="w-[80px] h-[80px] rounded-full object-cover shadow-sm border border-gray-100" />
                       <div className="flex flex-col">
@@ -80,14 +84,14 @@ function App() {
                         <p className="text-gray-600 text-[15px]">Mari belajar bahasa Jepang dengan cara yang menyenangkan!</p>
                       </div>
                     </div>
-                    <div className="flex gap-2 text-2xl">
-                      <span>🇮🇩</span>
-                      <span>🇯🇵</span>
+                    <div className="flex gap-3 text-[26px] items-center">
+                      <span className="fi fi-id rounded-sm shadow-sm overflow-hidden" title="Indonesia"></span>
+                      <span className="fi fi-jp rounded-sm shadow-sm overflow-hidden" title="Japan"></span>
                     </div>
                   </div>
 
                   {/* Card 2: Details */}
-                  <div className="bg-[#f8f8f8] rounded-2xl p-8 shadow-sm border border-gray-50 flex flex-col gap-6">
+                  <div className="bg-[#f8f8f8] rounded-2xl p-6 shadow-sm border border-gray-50 flex flex-col gap-4">
                     {/* Profil Section */}
                     <div>
                       <h3 className="text-[#FF5757] text-[16px] font-bold mb-3">Profil</h3>
@@ -120,9 +124,58 @@ function App() {
               )}
               
               {activeMenu === 'Sertifikatku' && (
-                <div className="animate-fade-in flex flex-col h-full items-center justify-center text-gray-400 py-32">
-                  <i className="ph-duotone ph-certificate text-6xl text-[#FF5757] mb-4 opacity-50"></i>
-                  <p>Sertifikat akan ditampilkan di sini.</p>
+                <div className="animate-fade-in w-full max-w-[800px] mx-auto">
+                  <h1 className="text-[32px] font-bold text-black mb-8">Sertifikatku</h1>
+                  
+                  <div className="flex gap-6 items-start">
+                    {/* Left: Certificate Image */}
+                    <div className="flex-1 bg-[#f8f8f8] p-3 rounded-2xl shadow-sm border border-gray-50 flex items-center justify-center">
+                      <img src="/sertifikat.png" alt="Sertifikat" className="w-full h-auto rounded-xl shadow-sm border border-gray-50" />
+                    </div>
+
+                    {/* Right: Radar Chart & Total Score */}
+                    <div className="flex-1 bg-[#f8f8f8] p-6 rounded-2xl shadow-sm border border-gray-50 flex flex-col w-full">
+                      <h3 className="text-center font-bold text-gray-800 mb-2">Score Breakdown</h3>
+                      <ResponsiveContainer width="100%" height={220}>
+                        <RadarChart cx="50%" cy="50%" outerRadius="70%" data={radarData}>
+                          <PolarGrid />
+                          <PolarAngleAxis dataKey="subject" tick={{ fill: '#666', fontSize: 11 }} />
+                          <PolarRadiusAxis angle={90} domain={[0, 100]} tick={{ fill: '#999', fontSize: 10 }} />
+                          <Radar name="Score" dataKey="A" stroke="#FF5757" fill="#FF5757" fillOpacity={0.5} />
+                        </RadarChart>
+                      </ResponsiveContainer>
+
+                      {/* Total Score Bar */}
+                      <div className="w-full mt-6 px-2">
+                        <div className="flex justify-between items-end mb-3">
+                          <div>
+                            <span className="text-xs font-semibold text-gray-500 block mb-1 uppercase tracking-wide">Total Score</span>
+                            <h4 className="text-3xl font-bold text-[#FF5757] leading-none">233 <span className="text-sm font-medium text-gray-400">points</span></h4>
+                          </div>
+                          <div className="text-right text-[11px] text-gray-400">
+                            Range: 10-250<br/>
+                            Passing: 200
+                          </div>
+                        </div>
+                        
+                        <div className="relative h-2.5 bg-gray-100 rounded-full w-full mt-2 mb-4">
+                          {/* Colored Fill */}
+                          <div className="absolute top-0 left-0 h-full bg-[#FF5757] rounded-full transition-all duration-1000 ease-out" style={{ width: '92.9%' }}></div>
+                          
+                          {/* Marker at 233 */}
+                          <div className="absolute top-1/2 w-4 h-4 bg-white border-[3px] border-[#FF5757] rounded-full shadow-sm z-20" style={{ left: '92.9%', transform: 'translate(-50%, -50%)' }}></div>
+                          
+                          {/* Ticks and Labels */}
+                          <div className="absolute top-full mt-1.5 left-0 text-[11px] font-medium text-gray-400">10</div>
+                          
+                          <div className="absolute top-0 h-full w-[2px] bg-white z-10" style={{ left: '79.1%' }}></div>
+                          <div className="absolute top-full mt-1.5 text-[11px] font-medium text-gray-400" style={{ left: '79.1%', transform: 'translateX(-50%)' }}>200</div>
+                          
+                          <div className="absolute top-full mt-1.5 right-0 text-[11px] font-medium text-gray-400">250</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               )}
 
