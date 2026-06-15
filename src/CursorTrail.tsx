@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 
 const chars = ['こ', 'ん', 'に', 'ち', 'は'];
 
@@ -162,7 +162,7 @@ export const CursorTrail = () => {
         return (
           <div
             key={index}
-            ref={(el) => (circleRefs.current[index] = el)}
+            ref={(el) => { circleRefs.current[index] = el; }}
             className="absolute top-0 left-0 flex items-center justify-center bg-white border-[2.5px] border-black rounded-full text-[#FF5757] font-bold shadow-sm transition-opacity duration-300"
             style={{
               width: '44px',

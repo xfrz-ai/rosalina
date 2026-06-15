@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { CursorTrail } from './CursorTrail';
 
 function App() {
