@@ -32,7 +32,7 @@ function FlipCard({ image, title, description }: { image: string, title: string,
 
   return (
     <div
-      className="relative w-full aspect-[4/5] cursor-pointer group"
+      className="relative w-[180px] sm:w-full shrink-0 snap-center aspect-[4/5] cursor-pointer group"
       style={{ perspective: '1000px' }}
       onClick={() => setIsFlipped(!isFlipped)}
     >
@@ -72,30 +72,37 @@ function App() {
   return (
     <>
       <CursorTrail />
-      <div className="w-[1200px] max-w-[95vw] h-[1000px] max-h-[90vh] bg-[#f0f0f0] rounded-[20px] shadow-[0_20px_60px_-15px_rgba(0,0,0,0.15)] flex overflow-hidden">
-        {/* Sidebar */}
-        <div className="w-[260px] shrink-0 pt-4 flex flex-col relative bg-[#f0f0f0]">
+      <div className="w-full h-[100vh] sm:w-[1200px] sm:max-w-[95vw] sm:h-[1000px] sm:max-h-[90vh] bg-[#f0f0f0] sm:rounded-[20px] sm:shadow-[0_20px_60px_-15px_rgba(0,0,0,0.15)] flex flex-col sm:flex-row overflow-hidden relative">
+        {/* Sidebar / Header */}
+        <div className="w-full sm:w-[260px] shrink-0 pt-4 flex flex-col relative bg-[#f0f0f0] z-10">
           {/* Mac Window Controls */}
-          <div className="flex gap-2 px-6 mb-8">
+          <div className="flex gap-2 px-6 mb-4 sm:mb-8">
             <div className="w-[11px] h-[11px] rounded-full bg-[#ff5f56]"></div>
             <div className="w-[11px] h-[11px] rounded-full bg-[#ffbd2e]"></div>
             <div className="w-[11px] h-[11px] rounded-full bg-[#27c93f]"></div>
           </div>
 
           {/* Profile Info */}
-          <div className="px-6 flex items-center gap-3 mb-6">
-            <img src="/avatar-rosalina.png" alt="Profile" className="w-[45px] h-[45px] rounded-full object-cover border border-gray-200 shadow-sm" />
-            <div className="flex flex-col">
-              <span className="text-[11px] text-gray-400 font-medium tracking-wide leading-tight mb-0.5">Mentor Bahasa Jepang</span>
-              <span className="text-[16px] font-bold text-gray-900 leading-tight">Rosalina</span>
+          <div className="px-6 flex items-center justify-between sm:justify-start mb-4 sm:mb-6">
+            <div className="flex items-center gap-3">
+              <img src="/avatar-rosalina.png" alt="Profile" className="w-[45px] h-[45px] rounded-full object-cover border border-gray-200 shadow-sm" />
+              <div className="flex flex-col">
+                <span className="text-[11px] text-gray-400 font-medium tracking-wide leading-tight mb-0.5">Mentor Bahasa Jepang</span>
+                <span className="text-[16px] font-bold text-gray-900 leading-tight">Rosalina</span>
+              </div>
             </div>
+            
+            {/* Mobile Hamburger Menu (hidden on desktop) */}
+            <button className="sm:hidden w-[45px] h-[45px] bg-[#FF5757] rounded-full flex items-center justify-center text-white shadow-sm">
+              <i className="ph ph-list text-xl"></i>
+            </button>
           </div>
 
           {/* Divider */}
-          <div className="border-b border-gray-200/80 mx-6 mb-6"></div>
+          <div className="hidden sm:block border-b border-gray-200/80 mx-6 mb-6"></div>
 
           {/* Navigation */}
-          <nav className="flex flex-col gap-1 px-4">
+          <nav className="hidden sm:flex flex-col gap-1 px-4">
             {menuItems.map((item) => (
               <button
                 key={item.name}
@@ -109,8 +116,21 @@ function App() {
           </nav>
         </div>
 
+        {/* Mobile Bottom Navigation */}
+        <div className="sm:hidden absolute bottom-0 left-0 w-full bg-[#FF5757] flex justify-around items-center py-4 rounded-t-3xl shadow-[0_-10px_20px_rgba(0,0,0,0.1)] z-20">
+          {menuItems.map((item) => (
+            <button
+              key={item.name}
+              onClick={() => setActiveMenu(item.name)}
+              className="flex flex-col items-center justify-center w-14 h-14"
+            >
+              <i className={`ph ${item.icon} text-[32px] ${activeMenu === item.name ? 'text-white' : 'text-white/60'}`}></i>
+            </button>
+          ))}
+        </div>
+
         {/* Main Content Area Wrapper */}
-        <div className="flex-1 p-4 pl-0 h-full">
+        <div className="flex-1 p-4 sm:pl-0 h-full overflow-hidden pb-24 sm:pb-4 relative">
           {/* Inner White Container with Notebook Lines */}
           <div
             className="bg-white rounded-xl shadow-sm h-full w-full overflow-y-auto relative"
@@ -120,39 +140,39 @@ function App() {
               backgroundPosition: '0 10px'
             }}
           >
-            <div className="p-12 relative z-10">
+            <div className="p-6 sm:p-12 relative z-10">
               {activeMenu === 'Tentangku' && (
                 <div className="animate-fade-in max-w-[800px] mx-auto">
-                  <h1 className="text-[32px] font-bold text-black mb-8">Tentangku</h1>
+                  <h1 className="text-[28px] sm:text-[32px] font-bold text-black mb-6 sm:mb-8">Tentangku</h1>
 
                   {/* Card 1: Greeting */}
-                  <div className="bg-[#f8f8f8] rounded-2xl p-6 mb-4 flex justify-between items-start shadow-sm border border-gray-50">
-                    <div className="flex gap-6 items-center">
-                      <img src="/avatar-rosalina.png" alt="Profile Large" className="w-[80px] h-[80px] rounded-full object-cover shadow-sm border border-gray-100" />
+                  <div className="bg-[#f8f8f8] rounded-[24px] p-5 sm:p-6 mb-4 flex flex-col sm:flex-row sm:justify-between items-start shadow-sm border border-gray-50 relative">
+                    <div className="flex gap-4 sm:gap-6 items-start sm:items-center">
+                      <img src="/avatar-rosalina.png" alt="Profile Large" className="w-[50px] h-[50px] sm:w-[80px] sm:h-[80px] rounded-full object-cover shadow-sm border border-gray-100" />
                       <div className="flex flex-col">
-                        <h2 className="text-[#FF5757] text-[24px] font-bold mb-1 leading-tight">こんにちは 👋</h2>
-                        <p className="text-black text-[18px] font-semibold mb-1">Aku Rosalina..</p>
-                        <p className="text-gray-600 text-[15px]">Mari belajar bahasa Jepang dengan cara yang menyenangkan!</p>
+                        <h2 className="text-[#FF5757] text-[20px] sm:text-[24px] font-bold mb-1 leading-tight pr-12 sm:pr-0">こんにちは 👋</h2>
+                        <p className="text-black text-[16px] sm:text-[18px] font-semibold mb-2 sm:mb-1">Aku Rosalina..</p>
+                        <p className="text-gray-600 text-[13px] sm:text-[15px] leading-relaxed">Mari belajar bahasa Jepang dengan cara yang menyenangkan!</p>
                       </div>
                     </div>
-                    <div className="flex gap-3 text-[26px] items-center">
+                    <div className="absolute top-5 right-5 sm:static flex gap-2 sm:gap-3 text-[20px] sm:text-[26px] items-center">
                       <span className="fi fi-id rounded-sm shadow-sm overflow-hidden" title="Indonesia"></span>
                       <span className="fi fi-jp rounded-sm shadow-sm overflow-hidden" title="Japan"></span>
                     </div>
                   </div>
 
                   {/* Card 2: Profil */}
-                  <div className="bg-[#f8f8f8] rounded-2xl p-6 mb-4 shadow-sm border border-gray-50">
+                  <div className="bg-[#f8f8f8] rounded-2xl p-5 sm:p-6 mb-4 shadow-sm border border-gray-50">
                     <h3 className="text-[#FF5757] text-[16px] font-bold mb-3">Profil</h3>
-                    <p className="text-gray-600 text-[15px] leading-[1.8]">
+                    <p className="text-gray-600 text-[14px] sm:text-[15px] leading-[1.8]">
                       Berawal dari kecintaan terhadap budaya Jepang, kini saya membantu siswa mencapai tujuan mereka dalam bahasa Jepang—mulai dari JLPT, Kaiwa, hingga persiapan studi dan kerja di Jepang.
                     </p>
                   </div>
 
                   {/* Card 3: Fun Fact */}
-                  <div className="bg-[#f8f8f8] rounded-2xl p-6 shadow-sm border border-gray-50">
+                  <div className="bg-[#f8f8f8] rounded-2xl p-5 sm:p-6 shadow-sm border border-gray-50">
                     <h3 className="text-[#FF5757] text-[16px] font-bold mb-3">Fun Fact</h3>
-                    <div className="grid grid-cols-3 gap-4">
+                    <div className="flex sm:grid sm:grid-cols-3 overflow-x-auto gap-4 pb-2 sm:pb-0 snap-x hide-scrollbar">
                       {funFactsData.map((fact, index) => (
                         <FlipCard key={index} {...fact} />
                       ))}
@@ -163,16 +183,16 @@ function App() {
 
               {activeMenu === 'Sertifikatku' && (
                 <div className="animate-fade-in w-full max-w-[800px] mx-auto">
-                  <h1 className="text-[32px] font-bold text-black mb-8">Sertifikatku</h1>
+                  <h1 className="text-[28px] sm:text-[32px] font-bold text-black mb-6 sm:mb-8">Sertifikatku</h1>
 
-                  <div className="flex gap-6 items-start">
+                  <div className="flex flex-col sm:flex-row gap-6 items-start">
                     {/* Left: Certificate Image */}
-                    <div className="flex-1 bg-[#f8f8f8] p-3 rounded-2xl shadow-sm border border-gray-50 flex items-center justify-center">
+                    <div className="flex-1 bg-[#f8f8f8] p-3 rounded-2xl shadow-sm border border-gray-50 flex items-center justify-center w-full">
                       <img src="/sertifikat.png" alt="Sertifikat" className="w-full h-auto rounded-xl shadow-sm border border-gray-50" />
                     </div>
 
                     {/* Right: Radar Chart & Total Score */}
-                    <div className="flex-1 bg-[#f8f8f8] p-6 rounded-2xl shadow-sm border border-gray-50 flex flex-col w-full">
+                    <div className="flex-1 bg-[#f8f8f8] p-5 sm:p-6 rounded-2xl shadow-sm border border-gray-50 flex flex-col w-full">
                       <h3 className="text-center font-bold text-gray-800 mb-2">Score Breakdown</h3>
                       <ResponsiveContainer width="100%" height={220}>
                         <RadarChart cx="50%" cy="50%" outerRadius="70%" data={radarData}>
@@ -222,7 +242,7 @@ function App() {
                   <h1 className="text-[32px] font-bold text-black mb-2">Materi Belajar</h1>
                   <p className="text-gray-500 text-[14px] mb-8">Pilih target belajarmu dan mulai perjalanan menuju Jepang!</p>
 
-                  <div className="grid grid-cols-2 gap-8">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8">
                     {/* N5 Card */}
                     <div className="bg-[#f8f8f8] rounded-[24px] p-8 shadow-sm border border-gray-50 flex flex-col relative overflow-hidden">
                       <div className="flex justify-between items-start mb-6">
