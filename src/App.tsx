@@ -218,9 +218,109 @@ function App() {
               )}
 
               {activeMenu === 'Materi Belajar' && (
-                <div className="animate-fade-in flex flex-col h-full items-center justify-center text-gray-400 py-32">
-                  <i className="ph-duotone ph-book-open text-6xl text-[#FF5757] mb-4 opacity-50"></i>
-                  <p>Materi belajar akan ditampilkan di sini.</p>
+                <div className="animate-fade-in max-w-[800px] mx-auto">
+                  <h1 className="text-[32px] font-bold text-black mb-2">Materi Belajar</h1>
+                  <p className="text-gray-500 text-[14px] mb-8">Pilih target belajarmu dan mulai perjalanan menuju Jepang!</p>
+                  
+                  <div className="grid grid-cols-2 gap-8">
+                    {/* N5 Card */}
+                    <div className="bg-[#f8f8f8] rounded-[24px] p-8 shadow-sm border border-gray-50 flex flex-col relative overflow-hidden">
+                      <div className="flex justify-between items-start mb-6">
+                        <h2 className="text-[64px] font-bold text-[#FF5757] leading-none tracking-tighter">N5</h2>
+                        <img src="/n5-ilustrasi.png" alt="N5 Illustration" className="w-[130px] h-auto object-contain absolute top-4 right-2" />
+                      </div>
+                      
+                      <p className="text-black font-medium text-[15px] mb-6 relative z-10">Dasar bahasa Jepang</p>
+                      
+                      <div className="flex flex-col gap-4 mb-4 flex-1">
+                        <div className="flex items-center gap-3 text-gray-800 text-[14px] font-medium">
+                          <i className="ph ph-book-bookmark text-xl text-gray-600"></i>
+                          <span>11 Pertemuan / Bulan</span>
+                        </div>
+                        <div className="flex items-center gap-3 text-gray-800 text-[14px] font-medium">
+                          <i className="ph ph-users text-xl text-gray-600"></i>
+                          <span>Private 1 on 1</span>
+                        </div>
+                        <div className="flex items-center gap-3 text-gray-800 text-[14px] font-medium">
+                          <i className="ph ph-book-open text-xl text-gray-600"></i>
+                          <span>Modul Belajar Termasuk</span>
+                        </div>
+                        <div className="flex items-center justify-between text-gray-800 text-[14px] font-medium">
+                          <div className="flex items-center gap-3">
+                            <i className="ph ph-target text-xl text-gray-600"></i>
+                            <span>Target Selesai</span>
+                          </div>
+                          <span>5 Bulan</span>
+                        </div>
+                      </div>
+                      
+                      <div className="border-t border-gray-200 my-6"></div>
+                      
+                      <div className="flex items-end gap-1.5 mb-6">
+                        <span className="text-black font-semibold text-[15px] mb-1.5">Rp</span>
+                        <span className="text-[36px] font-bold text-black leading-none tracking-tight">280.000</span>
+                        <span className="text-gray-500 text-[14px] mb-1.5 font-medium">/bulan</span>
+                      </div>
+                      
+                      <a 
+                        href="https://wa.me/6285799680347?text=Halo%20Kak%20Rosalina,%20saya%20tertarik%20untuk%20daftar%20kelas%20N5"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-full bg-[#FF5757] hover:bg-[#ff4444] text-white font-medium py-3.5 rounded-full transition-colors text-center text-[15px]"
+                      >
+                        Pilih Kelas N5
+                      </a>
+                    </div>
+
+                    {/* N4 Card */}
+                    <div className="bg-[#f8f8f8] rounded-[24px] p-8 shadow-sm border border-gray-50 flex flex-col relative overflow-hidden">
+                      <div className="flex justify-between items-start mb-6">
+                        <h2 className="text-[64px] font-bold text-[#346dc0] leading-none tracking-tighter">N4</h2>
+                        <img src="/n4-ilustrasi.png" alt="N4 Illustration" className="w-[130px] h-auto object-contain absolute top-4 right-2" />
+                      </div>
+                      
+                      <p className="text-black font-medium text-[15px] mb-6 relative z-10">Menengah Bahasa Jepang</p>
+                      
+                      <div className="flex flex-col gap-4 mb-4 flex-1">
+                        <div className="flex items-center gap-3 text-gray-800 text-[14px] font-medium">
+                          <i className="ph ph-book-bookmark text-xl text-gray-600"></i>
+                          <span>11 Pertemuan / Bulan</span>
+                        </div>
+                        <div className="flex items-center gap-3 text-gray-800 text-[14px] font-medium">
+                          <i className="ph ph-users text-xl text-gray-600"></i>
+                          <span>Private 1 on 1</span>
+                        </div>
+                        <div className="flex items-center gap-3 text-gray-800 text-[14px] font-medium">
+                          <i className="ph ph-book-open text-xl text-gray-600"></i>
+                          <span>Modul Belajar Termasuk</span>
+                        </div>
+                        <div className="flex items-center justify-between text-gray-800 text-[14px] font-medium">
+                          <div className="flex items-center gap-3">
+                            <i className="ph ph-target text-xl text-gray-600"></i>
+                            <span>Target Selesai</span>
+                          </div>
+                          <span>5 Bulan</span>
+                        </div>
+                      </div>
+                      
+                      <div className="border-t border-gray-200 my-6"></div>
+                      
+                      <div className="flex items-end gap-1.5 mb-6">
+                        <span className="text-black font-semibold text-[15px] mb-1.5">Rp</span>
+                        <span className="text-[36px] font-bold text-black leading-none tracking-tight">350.000</span>
+                        <span className="text-gray-500 text-[14px] mb-1.5 font-medium">/bulan</span>
+                      </div>
+                      
+                      <a 
+                        href="https://wa.me/6285799680347?text=Halo%20Kak%20Rosalina,%20saya%20tertarik%20untuk%20daftar%20kelas%20N4"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-full bg-[#346dc0] hover:bg-[#2b5a9e] text-white font-medium py-3.5 rounded-full transition-colors text-center text-[15px]"
+                      >
+                        Pilih Kelas N4
+                      </a>
+                    </div>
+                  </div>
                 </div>
               )}
             </div>
