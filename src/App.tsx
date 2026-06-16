@@ -31,25 +31,25 @@ function FlipCard({ image, title, description }: { image: string, title: string,
   const [isFlipped, setIsFlipped] = useState(false);
 
   return (
-    <div 
+    <div
       className="relative w-full aspect-[4/5] cursor-pointer group"
       style={{ perspective: '1000px' }}
       onClick={() => setIsFlipped(!isFlipped)}
     >
-      <div 
+      <div
         className="w-full h-full transition-transform duration-500 relative"
         style={{ transformStyle: 'preserve-3d', transform: isFlipped ? 'rotateY(180deg)' : 'rotateY(0deg)' }}
       >
         {/* Front */}
-        <div 
+        <div
           className="absolute inset-0 bg-white rounded-2xl shadow-sm border border-gray-100 flex items-center justify-center p-2"
           style={{ backfaceVisibility: 'hidden' }}
         >
           <img src={image} alt={title} className="w-full h-full object-contain" />
         </div>
-        
+
         {/* Back */}
-        <div 
+        <div
           className="absolute inset-0 bg-[#FF5757] rounded-2xl shadow-sm p-5 flex flex-col justify-center"
           style={{ backfaceVisibility: 'hidden', transform: 'rotateY(180deg)' }}
         >
@@ -72,7 +72,7 @@ function App() {
   return (
     <>
       <CursorTrail />
-      <div className="w-[1200px] max-w-[95vw] h-[800px] max-h-[90vh] bg-[#f0f0f0] rounded-[20px] shadow-[0_20px_60px_-15px_rgba(0,0,0,0.15)] flex overflow-hidden">
+      <div className="w-[1200px] max-w-[95vw] h-[1000px] max-h-[90vh] bg-[#f0f0f0] rounded-[20px] shadow-[0_20px_60px_-15px_rgba(0,0,0,0.15)] flex overflow-hidden">
         {/* Sidebar */}
         <div className="w-[260px] shrink-0 pt-4 flex flex-col relative bg-[#f0f0f0]">
           {/* Mac Window Controls */}
@@ -112,7 +112,7 @@ function App() {
         {/* Main Content Area Wrapper */}
         <div className="flex-1 p-4 pl-0 h-full">
           {/* Inner White Container with Notebook Lines */}
-          <div 
+          <div
             className="bg-white rounded-xl shadow-sm h-full w-full overflow-y-auto relative"
             style={{
               backgroundImage: 'repeating-linear-gradient(transparent, transparent 39px, #f0f0f0 39px, #f0f0f0 40px)',
@@ -124,7 +124,7 @@ function App() {
               {activeMenu === 'Tentangku' && (
                 <div className="animate-fade-in max-w-[800px] mx-auto">
                   <h1 className="text-[32px] font-bold text-black mb-8">Tentangku</h1>
-                  
+
                   {/* Card 1: Greeting */}
                   <div className="bg-[#f8f8f8] rounded-2xl p-6 mb-4 flex justify-between items-start shadow-sm border border-gray-50">
                     <div className="flex gap-6 items-center">
@@ -160,11 +160,11 @@ function App() {
                   </div>
                 </div>
               )}
-              
+
               {activeMenu === 'Sertifikatku' && (
                 <div className="animate-fade-in w-full max-w-[800px] mx-auto">
                   <h1 className="text-[32px] font-bold text-black mb-8">Sertifikatku</h1>
-                  
+
                   <div className="flex gap-6 items-start">
                     {/* Left: Certificate Image */}
                     <div className="flex-1 bg-[#f8f8f8] p-3 rounded-2xl shadow-sm border border-gray-50 flex items-center justify-center">
@@ -191,24 +191,24 @@ function App() {
                             <h4 className="text-3xl font-bold text-[#FF5757] leading-none">233 <span className="text-sm font-medium text-gray-400">points</span></h4>
                           </div>
                           <div className="text-right text-[11px] text-gray-400">
-                            Range: 10-250<br/>
+                            Range: 10-250<br />
                             Passing: 200
                           </div>
                         </div>
-                        
+
                         <div className="relative h-2.5 bg-gray-100 rounded-full w-full mt-2 mb-4">
                           {/* Colored Fill */}
                           <div className="absolute top-0 left-0 h-full bg-[#FF5757] rounded-full transition-all duration-1000 ease-out" style={{ width: '92.9%' }}></div>
-                          
+
                           {/* Marker at 233 */}
                           <div className="absolute top-1/2 w-4 h-4 bg-white border-[3px] border-[#FF5757] rounded-full shadow-sm z-20" style={{ left: '92.9%', transform: 'translate(-50%, -50%)' }}></div>
-                          
+
                           {/* Ticks and Labels */}
                           <div className="absolute top-full mt-1.5 left-0 text-[11px] font-medium text-gray-400">10</div>
-                          
+
                           <div className="absolute top-0 h-full w-[2px] bg-white z-10" style={{ left: '79.1%' }}></div>
                           <div className="absolute top-full mt-1.5 text-[11px] font-medium text-gray-400" style={{ left: '79.1%', transform: 'translateX(-50%)' }}>200</div>
-                          
+
                           <div className="absolute top-full mt-1.5 right-0 text-[11px] font-medium text-gray-400">250</div>
                         </div>
                       </div>
@@ -221,7 +221,7 @@ function App() {
                 <div className="animate-fade-in max-w-[800px] mx-auto">
                   <h1 className="text-[32px] font-bold text-black mb-2">Materi Belajar</h1>
                   <p className="text-gray-500 text-[14px] mb-8">Pilih target belajarmu dan mulai perjalanan menuju Jepang!</p>
-                  
+
                   <div className="grid grid-cols-2 gap-8">
                     {/* N5 Card */}
                     <div className="bg-[#f8f8f8] rounded-[24px] p-8 shadow-sm border border-gray-50 flex flex-col relative overflow-hidden">
@@ -229,9 +229,9 @@ function App() {
                         <h2 className="text-[64px] font-bold text-[#FF5757] leading-none tracking-tighter">N5</h2>
                         <img src="/n5-ilustrasi.png" alt="N5 Illustration" className="w-[130px] h-auto object-contain absolute top-4 right-2" />
                       </div>
-                      
-                      <p className="text-black font-medium text-[15px] mb-6 relative z-10">Dasar bahasa Jepang</p>
-                      
+
+                      <p className="text-black font-medium text-[15px] mb-6 relative z-10">Beginner/Pemula</p>
+
                       <div className="flex flex-col gap-4 mb-4 flex-1">
                         <div className="flex items-center gap-3 text-gray-800 text-[14px] font-medium">
                           <i className="ph ph-book-bookmark text-xl text-gray-600"></i>
@@ -253,17 +253,17 @@ function App() {
                           <span>5 Bulan</span>
                         </div>
                       </div>
-                      
+
                       <div className="border-t border-gray-200 my-6"></div>
-                      
+
                       <div className="flex items-end gap-1.5 mb-6">
                         <span className="text-black font-semibold text-[15px] mb-1.5">Rp</span>
                         <span className="text-[36px] font-bold text-black leading-none tracking-tight">280.000</span>
                         <span className="text-gray-500 text-[14px] mb-1.5 font-medium">/bulan</span>
                       </div>
-                      
-                      <a 
-                        href="https://wa.me/6285799680347?text=Halo%20Kak%20Rosalina,%20saya%20tertarik%20untuk%20daftar%20kelas%20N5"
+
+                      <a
+                        href="https://wa.me/6285763534912?text=Halo%20Kak%20Rosalina,%20saya%20tertarik%20untuk%20daftar%20kelas%20N5"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="w-full bg-[#FF5757] hover:bg-[#ff4444] text-white font-medium py-3.5 rounded-full transition-colors text-center text-[15px]"
@@ -278,9 +278,9 @@ function App() {
                         <h2 className="text-[64px] font-bold text-[#346dc0] leading-none tracking-tighter">N4</h2>
                         <img src="/n4-ilustrasi.png" alt="N4 Illustration" className="w-[130px] h-auto object-contain absolute top-4 right-2" />
                       </div>
-                      
-                      <p className="text-black font-medium text-[15px] mb-6 relative z-10">Menengah Bahasa Jepang</p>
-                      
+
+                      <p className="text-black font-medium text-[15px] mb-6 relative z-10">Basic</p>
+
                       <div className="flex flex-col gap-4 mb-4 flex-1">
                         <div className="flex items-center gap-3 text-gray-800 text-[14px] font-medium">
                           <i className="ph ph-book-bookmark text-xl text-gray-600"></i>
@@ -302,17 +302,17 @@ function App() {
                           <span>5 Bulan</span>
                         </div>
                       </div>
-                      
+
                       <div className="border-t border-gray-200 my-6"></div>
-                      
+
                       <div className="flex items-end gap-1.5 mb-6">
                         <span className="text-black font-semibold text-[15px] mb-1.5">Rp</span>
                         <span className="text-[36px] font-bold text-black leading-none tracking-tight">350.000</span>
                         <span className="text-gray-500 text-[14px] mb-1.5 font-medium">/bulan</span>
                       </div>
-                      
-                      <a 
-                        href="https://wa.me/6285799680347?text=Halo%20Kak%20Rosalina,%20saya%20tertarik%20untuk%20daftar%20kelas%20N4"
+
+                      <a
+                        href="https://wa.me/6285763534912?text=Halo%20Kak%20Rosalina,%20saya%20tertarik%20untuk%20daftar%20kelas%20N4"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="w-full bg-[#346dc0] hover:bg-[#2b5a9e] text-white font-medium py-3.5 rounded-full transition-colors text-center text-[15px]"
