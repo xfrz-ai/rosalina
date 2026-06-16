@@ -321,6 +321,49 @@ function App() {
                       </a>
                     </div>
                   </div>
+                  
+                  {/* Apa yang akan kamu dapatkan */}
+                  <div className="hidden mt-8 bg-[#f8f8f8] rounded-[24px] p-8 shadow-sm border border-gray-50">
+                    <h3 className="text-[18px] font-bold text-black mb-8 text-center">Apa yang akan kamu dapatkan?</h3>
+                    
+                    <div className="flex justify-between items-start gap-2">
+                      <div className="flex flex-col items-center text-center flex-1 px-1">
+                        <div className="w-[64px] h-[64px] rounded-full bg-[#fff0f0] flex items-center justify-center mb-4 border border-red-50">
+                          <i className="ph-duotone ph-book-open text-[32px] text-[#FF5757]"></i>
+                        </div>
+                        <p className="text-[13px] text-gray-700 leading-snug font-medium">Materi terstruktur<br/>dari dasar hingga mahir</p>
+                      </div>
+
+                      <div className="flex flex-col items-center text-center flex-1 px-1">
+                        <div className="w-[64px] h-[64px] rounded-full bg-[#f0f4ff] flex items-center justify-center mb-4 border border-blue-50">
+                          <i className="ph-duotone ph-headphones text-[32px] text-[#346dc0]"></i>
+                        </div>
+                        <p className="text-[13px] text-gray-700 leading-snug font-medium">Latihan mendengar<br/>dan berbicara</p>
+                      </div>
+
+                      <div className="flex flex-col items-center text-center flex-1 px-1">
+                        <div className="w-[64px] h-[64px] rounded-full bg-[#fff0f0] flex items-center justify-center mb-4 border border-red-50">
+                          <i className="ph-duotone ph-pencil-line text-[32px] text-[#FF5757]"></i>
+                        </div>
+                        <p className="text-[13px] text-gray-700 leading-snug font-medium">Latihan soal JLPT<br/>dan pembahasan</p>
+                      </div>
+
+                      <div className="flex flex-col items-center text-center flex-1 px-1">
+                        <div className="w-[64px] h-[64px] rounded-full bg-[#fff0f0] flex items-center justify-center mb-4 border border-red-50">
+                          <i className="ph-duotone ph-chat-circle-dots text-[32px] text-[#FF5757]"></i>
+                        </div>
+                        <p className="text-[13px] text-gray-700 leading-snug font-medium">Feedback langsung<br/>dari sensei</p>
+                      </div>
+
+                      <div className="flex flex-col items-center text-center flex-1 px-1">
+                        <div className="w-[64px] h-[64px] rounded-full bg-[#f0f4ff] flex items-center justify-center mb-4 border border-blue-50">
+                          <i className="ph-duotone ph-certificate text-[32px] text-[#346dc0]"></i>
+                        </div>
+                        <p className="text-[13px] text-gray-700 leading-snug font-medium">Persiapan studi &<br/>karier di Jepang</p>
+                      </div>
+                    </div>
+                  </div>
+
                 </div>
               )}
             </div>
