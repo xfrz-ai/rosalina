@@ -276,10 +276,18 @@ function App() {
 
                       <div className="border-t border-gray-200 my-6"></div>
 
-                      <div className="flex items-end gap-1.5 mb-6">
-                        <span className="text-black font-semibold text-[15px] mb-1.5">Rp</span>
-                        <span className="text-[36px] font-bold text-black leading-none tracking-tight">280.000</span>
-                        <span className="text-gray-500 text-[14px] mb-1.5 font-medium">/bulan</span>
+                      <div className="flex flex-col mb-6">
+                        <div className="ml-8 mb-1">
+                          <span className="text-[#4b4b4b] font-bold text-[20px] relative inline-block tracking-wide">
+                            280.000
+                            <img src="/line.svg" alt="" className="absolute left-[-10%] top-1/2 w-[120%] h-auto transform -translate-y-1/2 pointer-events-none" />
+                          </span>
+                        </div>
+                        <div className="flex items-end gap-2">
+                          <span className="text-black font-medium text-[18px] mb-1.5">Rp</span>
+                          <span className="text-[52px] font-bold text-black leading-none tracking-tight">49.000</span>
+                          <span className="text-black text-[18px] mb-1.5 font-medium">/bulan</span>
+                        </div>
                       </div>
 
                       <a
@@ -325,10 +333,18 @@ function App() {
 
                       <div className="border-t border-gray-200 my-6"></div>
 
-                      <div className="flex items-end gap-1.5 mb-6">
-                        <span className="text-black font-semibold text-[15px] mb-1.5">Rp</span>
-                        <span className="text-[36px] font-bold text-black leading-none tracking-tight">350.000</span>
-                        <span className="text-gray-500 text-[14px] mb-1.5 font-medium">/bulan</span>
+                      <div className="flex flex-col mb-6">
+                        <div className="ml-8 mb-1">
+                          <span className="text-[#4b4b4b] font-bold text-[20px] relative inline-block tracking-wide">
+                            350.000
+                            <img src="/line.svg" alt="" className="absolute left-[-10%] top-1/2 w-[120%] h-auto transform -translate-y-1/2 pointer-events-none" />
+                          </span>
+                        </div>
+                        <div className="flex items-end gap-2">
+                          <span className="text-black font-medium text-[18px] mb-1.5">Rp</span>
+                          <span className="text-[52px] font-bold text-black leading-none tracking-tight">49.000</span>
+                          <span className="text-black text-[18px] mb-1.5 font-medium">/bulan</span>
+                        </div>
                       </div>
 
                       <a
