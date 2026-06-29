@@ -285,7 +285,7 @@ function App() {
                         </div>
                         <div className="flex items-end gap-2">
                           <span className="text-black font-medium text-[18px] mb-1.5">Rp</span>
-                          <span className="text-[52px] font-bold text-black leading-none tracking-tight">150.000</span>
+                          <span className="text-[52px] font-bold text-black leading-none tracking-tight">180.000</span>
                           <span className="text-black text-[18px] mb-1.5 font-medium">/bulan</span>
                         </div>
                       </div>
@@ -342,7 +342,7 @@ function App() {
                         </div>
                         <div className="flex items-end gap-2">
                           <span className="text-black font-medium text-[18px] mb-1.5">Rp</span>
-                          <span className="text-[52px] font-bold text-black leading-none tracking-tight">150.000</span>
+                          <span className="text-[52px] font-bold text-black leading-none tracking-tight">250.000</span>
                           <span className="text-black text-[18px] mb-1.5 font-medium">/bulan</span>
                         </div>
                       </div>
