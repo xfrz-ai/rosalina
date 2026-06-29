@@ -255,7 +255,7 @@ function App() {
                       <div className="flex flex-col gap-4 mb-4 flex-1">
                         <div className="flex items-center gap-3 text-gray-800 text-[14px] font-medium">
                           <i className="ph ph-book-bookmark text-xl text-gray-600"></i>
-                          <span>11 Pertemuan / Bulan</span>
+                          <span>8 Pertemuan / Bulan</span>
                         </div>
                         <div className="flex items-center gap-3 text-gray-800 text-[14px] font-medium">
                           <i className="ph ph-users text-xl text-gray-600"></i>
@@ -285,7 +285,7 @@ function App() {
                         </div>
                         <div className="flex items-end gap-2">
                           <span className="text-black font-medium text-[18px] mb-1.5">Rp</span>
-                          <span className="text-[52px] font-bold text-black leading-none tracking-tight">49.000</span>
+                          <span className="text-[52px] font-bold text-black leading-none tracking-tight">150.000</span>
                           <span className="text-black text-[18px] mb-1.5 font-medium">/bulan</span>
                         </div>
                       </div>
@@ -312,7 +312,7 @@ function App() {
                       <div className="flex flex-col gap-4 mb-4 flex-1">
                         <div className="flex items-center gap-3 text-gray-800 text-[14px] font-medium">
                           <i className="ph ph-book-bookmark text-xl text-gray-600"></i>
-                          <span>11 Pertemuan / Bulan</span>
+                          <span>8 Pertemuan / Bulan</span>
                         </div>
                         <div className="flex items-center gap-3 text-gray-800 text-[14px] font-medium">
                           <i className="ph ph-users text-xl text-gray-600"></i>
@@ -342,7 +342,7 @@ function App() {
                         </div>
                         <div className="flex items-end gap-2">
                           <span className="text-black font-medium text-[18px] mb-1.5">Rp</span>
-                          <span className="text-[52px] font-bold text-black leading-none tracking-tight">49.000</span>
+                          <span className="text-[52px] font-bold text-black leading-none tracking-tight">150.000</span>
                           <span className="text-black text-[18px] mb-1.5 font-medium">/bulan</span>
                         </div>
                       </div>
